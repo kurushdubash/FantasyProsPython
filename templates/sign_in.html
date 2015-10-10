@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="CleanTweets! Sign-in page">
+    <meta name="author" content="">
+    <link rel="icon" href="{{ url_for('static', filename='webpage-tiny-icon.gif') }}">
+
+    <title>CleanTweets! </title>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+
+    <!-- Bootstrap core JS Plugin -->
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.js') }}">
+    </script>
+
+    <script type="text/javascript">// <![CDATA[
+        function loading(){
+            $("#loading_square").show();
+            $("#content").hide();       
+        }
+// ]]></script>
+
+<!--     <link src="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" > -->
+
+    <link href="{{ url_for('static', filename='Font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+
+
+    <link href="//trololo.com.css" rel="stylesheet" >
+
+    <!-- Footer CSS -->
+    <link href="{{ url_for('static', filename='footer.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="{{ url_for('static', filename='signin.css') }}" rel="stylesheet"> -->
+
+
+  </head>
+
+  <body>
+<!--     {% if g.user %}
+        <center>
+            <div class="alert alert-success alert-dismissible" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <strong>Success!</strong> You have Successfully logged onto CleanTweets using your Twitter Account!
+            </div>
+        </center>
+    {% endif %}
+ -->
+    
+
+    <header id="top" class="header">
+        <div class="jumbotron">
+            <center>
+                <h1>Clean Tweets</h1>
+                <h3>Remove all your offensive and incriminating tweets!</h3>
+                <br/>
+                <br/>
+
+                {% if g.user %}
+                    <p><a class="btn btn-primary btn-lg" href="{{ url_for('logout') }}" role="button">
+                        <i class="fa fa-sign-out"></i>
+                        &nbsp;&nbsp;
+                        Sign out {{ g.user.screen_name}} 
+                    </a></p>
+                {% else %}
+                    <p><a class="btn btn-info btn-lg" href="{{ url_for('login') }}" role="button"> 
+                        <i class="fa fa-twitter fa-2x"></i>
+                        Sign in 
+                    </a></p>                
+                {% endif %}
+            </center>
+
+
+
+            <br>
+        </div>
+
+<!--     MESSAGES THROWN BY TWITTER AUTH
+        {% for message in get_flashed_messages() %}
+              <p class=message>{{ message }}</p>
+            {% endfor %} -->
+    </header>
+
+<!-- TWITTER's SCRIPT TO EFFICIENTLY EMBED TWEETS -->
+    <script>window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+     
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+     
+      return t;
+    }(document, "script", "twitter-wjs"));</script>
+<!--  END TWITTER's SCRIPT TO EFFICIENTLY EMBED TWEETS -->
+
+    <footer class='footer'>
+        <center>
+            <h5>
+                Engineered by Hassaan Shakeel, Kurush Dubash, and Andrew Shao
+            </h5>
+
+        <center>
+    </footer>
+
+{% block body %}{% endblock %}
+
+  </body>
+</html>
+
