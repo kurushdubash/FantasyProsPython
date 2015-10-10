@@ -14,18 +14,19 @@ dst = 25
 
 # Goes to the file and picks out the top amt of players and creates the player objets to hold them. 
 
-# Input: Filename of data to be read, Amount of players to create
+# Input: Filename of data to be read, Amount of players to create, What week it is
 # Output: List of Player objects
-
 def get_position_player(filename,amt):
 	data = open(filename,'r')
 	playerlist = []
-	# get rid of all the stuf at the top of the page
 	for x in range(0,fluffcounter):
-		data.readline();
+		playerdata = data.readline();
+		playerdata = playerdata.split();
+		if(playerdata and playerdata[0] == ("Week")):
+			week = playerdata[1]
 	
 	for x in range(0,amt):
-		playerdata = data.readline();
+		playerdata = data.readline()
 		playerdata = playerdata.split();
 		infocounter = -1
 		for info in playerdata:
@@ -47,10 +48,10 @@ def get_position_player(filename,amt):
 		avg = playerdata[infocounter]
 		infocounter = infocounter+1
 		std = playerdata[infocounter]
-		newplayer = Player(name,rank,team,matchup,best,worst,avg,std)
+		newplayer = Player(name,rank,team,matchup,best,worst,avg,std,week)
 		playerlist.append(newplayer)
-
 	return playerlist
+
 
 # @param dl: desired position acronym
 # @return: player_object list for that position
@@ -85,8 +86,3 @@ def translate_position(pos_list):
 		player_tuple = (player.name, player.rank, player.std)
 		result.append(player_tuple)
 	return result
-
-
-
-
-
