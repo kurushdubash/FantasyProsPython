@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import g, session, request, url_for, flash
 from flask import redirect, render_template
+import os
 import fantasyprodata
 
 
@@ -11,9 +12,8 @@ app.secret_key = 'development'
 
 @app.before_request
 def before_request():
-    g.user = None
-    if 'twitter_oauth' in session:
-        g.user = session['twitter_oauth']
+    os.system('bash download.sh')
+        
 
 
 @app.route('/')
