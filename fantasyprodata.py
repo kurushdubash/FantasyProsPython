@@ -1,5 +1,6 @@
 from Player import Player
 import requests
+import os
 # Imports data from files and creates playe classes. 
 fluffcounter = 6;
 qb = 15
@@ -18,14 +19,6 @@ dst = 25
 def get_position_player(filename,amt):
 	data = open(filename,'r')
 	playerlist = []
-# 	# get rid of all the stuf at the top of the page
-# 	for x in range(0,fluffcounter):
-# 		data.readline();
-	
-# 	for x in range(0,amt):
-# 		playerdata = data.readline();
-# 		playerdata = playerdata.split();
-	# get rid of all the stuf at the top of the page
 	for x in range(0,fluffcounter):
 		playerdata = data.readline();
 		playerdata = playerdata.split();
@@ -58,3 +51,38 @@ def get_position_player(filename,amt):
 		newplayer = Player(name,rank,team,matchup,best,worst,avg,std,week)
 		playerlist.append(newplayer)
 	return playerlist
+
+
+# @param dl: desired position acronym
+# @return: player_object list for that position
+def get_all_players(inputstr):
+	object_list = []
+	if inputstr == "dl":
+		object_list = get_position_player("data/" + inputstr, dl)
+	elif inputstr == "qb":
+		object_list = get_position_player("data/" + inputstr, qb)
+	elif inputstr == "rb":
+		object_list = get_position_player("data/" + inputstr, rb)
+	elif inputstr == "te":
+		object_list = get_position_player("data/" + inputstr, te)
+	elif inputstr == "flex":
+		object_list = get_position_player("data/" + inputstr, flex)
+	elif inputstr == "wr":
+		object_list = get_position_player("data/" + inputstr, wr)
+	elif inputstr == "kicker":
+		object_list = get_position_player("data/" + inputstr, kicker)
+	elif inputstr == "dst":
+		object_list = get_position_player("data/" + inputstr, dst)		
+	return object_list
+
+
+# @param pos_list: from get_all_players
+# player_tuple contains: player,rank, std (tier)
+# @return: list of tuples in order
+def translate_position(pos_list):
+	result = []
+	player_tuple = []
+	for player in pos_list:
+		player_tuple = (player.name, player.rank, player.std)
+		result.append(player_tuple)
+	return result

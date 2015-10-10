@@ -14,7 +14,7 @@
 class Player: 
 	"Player class that represents a football player"
 
-	def __init__(self,name,rank,team,matchup,best,worst,avg,std,week):
+	def __init__(self,name,rank,team,matchup,best,worst,avg,std, week):
 		"Creates football player"
 		self.name = name;
 		self.rank = rank;
@@ -25,4 +25,3 @@ class Player:
 		self.avg = avg;
 		self.std = std;
 		self.week = week;
-
