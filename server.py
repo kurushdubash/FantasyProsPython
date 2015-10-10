@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-import os
+import os, datetime
 #import fantasyprodata
 
 
@@ -14,7 +14,16 @@ def before_request():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    data = open('data/wr')
+    j = "NULL"
+    for line in data:
+        if 's' in line:
+            j = line
+    return render_template('index.html', data=j)
+
+@app.route('/data/wr')
+def getter():
+    return os.system('data/wr')
 
 
 

@@ -1,4 +1,5 @@
 from Player import Player
+import requests
 # Imports data from files and creates playe classes. 
 fluffcounter = 6;
 qb = 15
@@ -14,8 +15,9 @@ dst = 25
 
 # Input: Filename of data to be read, Amount of players to create, What week it is
 # Output: List of Player objects
-def get_position_player(filename,amt,week):
-	data = open(filename,'r')
+def get_position_player(url,amt,week):
+	data = requests.get(url)
+	data = data.text
 	playerlist = []
 	# get rid of all the stuf at the top of the page
 	for x in range(0,fluffcounter):
