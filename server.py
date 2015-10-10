@@ -17,6 +17,13 @@ last_updated = update_check()
 def index():
     return render_template('index.html', updated=last_updated)
 
+@app.route('/rankings', methods=['POST'])
+def rankings():
+    value = request.form['action']
+    print(value)
+    return render_template('rankings.html', updated=last_updated, type=value)
+
+
 if __name__ == "__main__":
     app.debug = True
     app.run()
