@@ -16,8 +16,10 @@ def update_check():
     if time_difference > 2:
         os.system('bash download.sh')       
         string_time = str(time_now.year) + ' ' + str(time_now.month) + ' ' + str(time_now.day) + ' ' + str(time_now.hour)
-        print(string_time)
         last_update.close()
         last_update = open('last_update', 'w')
         last_update.write(string_time)
-    last_update.close()
+        last_update.close()
+        return str(time_now)
+    return str(last_update_time)
+
