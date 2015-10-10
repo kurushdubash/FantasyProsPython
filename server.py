@@ -1,31 +1,19 @@
 from flask import Flask, request, render_template
-import os, datetime
-#import fantasyprodata
+from check_for_updates import update_check
+import fantasyprodata
 
 
 app = Flask(__name__)
 app.debug = True
-app.secret_key = 'development'
+
 
 @app.before_request
 def before_request():
-    os.system('bash download.sh')       
-
+    update_check()
 
 @app.route('/')
 def index():
-    data = open('data/wr')
-    j = "NULL"
-    for line in data:
-        if 's' in line:
-            j = line
-    return render_template('index.html', data=j)
-
-@app.route('/data/wr')
-def getter():
-    return os.system('data/wr')
-
-
+    return render_template('index.html')
 
 if __name__ == "__main__":
     app.debug = True
