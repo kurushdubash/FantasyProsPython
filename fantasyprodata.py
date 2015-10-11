@@ -12,10 +12,11 @@ kicker = 15
 dl = 20
 dst = 20
 
-color = ["#FF00CD","#FF00FF","#E200FF","#BC00FF","#9100FF","#5E00FF","#1500FF","#1780FF","#17BAFF","#17DDFF","#17FCFF",
-	"#17FFED","#17FFAA","#26FF17","#B2FF17","#E1FF17","#FFFF17","#FFD917","#FFC217","#FF9717","#FF6817","#FF2217"]
+# color = ["#FF00CD","#FF00FF","#E200FF","#BC00FF","#9100FF","#5E00FF","#1500FF","#1780FF","#17BAFF","#17DDFF","#17FCFF",
+# 	"#17FFED","#17FFAA","#26FF17","#B2FF17","#E1FF17","#FFFF17","#FFD917","#FFC217","#FF9717","#FF6817","#FF2217"]
 
-
+color = ["#8467D7","#614051","#B93B8F","#F433FF","#FAAFBE","#EDC9AF","#C5908E","#7F4E52","#9F000F","#F62817","#E55B3c","#E18B6b","#F87217",
+	"#C47451","#7FE817","#387C44","#008080","#43BFC7","#2B65EC","#E5E4E2","#000000"]
 # Goes to the file and picks out the top amt of players and creates the player objets to hold them. 
 
 # Input: Filename of data to be read, Amount of players to create, What week it is
