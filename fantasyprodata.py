@@ -72,7 +72,15 @@ def get_all_players(inputstr):
 	elif inputstr == "kicker":
 		object_list = get_position_player("data/" + inputstr, kicker)
 	elif inputstr == "dst":
-		object_list = get_position_player("data/" + inputstr, dst)		
+		object_list = get_position_player("data/" + inputstr, dst)	
+	elif inputstr == "ppr-flex":
+		object_list = get_position_player("data/" + inputstr, flex)
+	elif inputstr == "ppr-rb":
+		object_list = get_position_player("data/" + inputstr, rb)
+	elif inputstr == "ppr-te":
+		object_list = get_position_player("data/" + inputstr, te)
+	elif inputstr == "ppr-wr":
+		object_list = get_position_player("data/" + inputstr, wr)
 	return object_list
 
 
@@ -86,3 +94,5 @@ def translate_position(pos_list):
 		player_tuple = (player.name, player.rank, player.std)
 		result.append(player_tuple)
 	return result
+
+
