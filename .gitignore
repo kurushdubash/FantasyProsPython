@@ -26,3 +26,6 @@ var/
 *.egg
 venv/
 linux-env/
+
+# OS X crap
+.DS_Store

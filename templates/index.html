@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="{{ url_for('static', filename='css/stylish-portfolio.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
@@ -45,9 +46,12 @@
             <li>
 
                 <form  action="/rankings" method="POST" id="rankings" >
-                <button type="submit" name="action" value="PPR QB">PPR QB</button>       
-                
-               </form>   
+                <a> <button class="fakelink" type="submit" name="action" value="PPR QB">PPR QB</button></a>       
+               </form>
+
+<!--                <a href="/rankings">WR</a> 
+ -->            </li>
+            <li>
                 <a href="#" onclick = $("#ranking").click() {alert($(this).html()); >WR</a>
             </li>
             <li>
