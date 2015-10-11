@@ -7,10 +7,14 @@ qb = 15
 rb = 25
 te = 20 
 wr = 45
-flex = 60
+flex = 50
 kicker = 15
 dl = 20
-dst = 25
+dst = 20
+
+color = ["#FF00CD","#FF00FF","#E200FF","#BC00FF","#9100FF","#5E00FF","#1500FF","#1780FF","#17BAFF","#17DDFF","#17FCFF",
+	"#17FFED","#17FFAA","#26FF17","#B2FF17","#E1FF17","#FFFF17","#FFD917","#FFC217","#FF9717","#FF6817","#FF2217"]
+
 
 # Goes to the file and picks out the top amt of players and creates the player objets to hold them. 
 
@@ -49,6 +53,8 @@ def get_position_player(filename,amt):
 		infocounter = infocounter+1
 		std = float(playerdata[infocounter])
 		newplayer = Player(name,rank,team,matchup,best,worst,avg,std,week)
+		if(x%2 == 0 and amt >20):
+			newplayer.labpos = "left"
 		playerlist.append(newplayer)
 	return playerlist
 
@@ -92,8 +98,8 @@ def translate_position(pos_list):
 	player_tuple = []
 	for player in pos_list:
 		player_tuple = {"name":player.name, "avg": player.avg, "std":player.std, 
-		"tier":player.tier, "rank":player.rank, "inverserank":1/player.rank}
-		
+		"tier":player.tier, "rank":player.rank, "inverserank":1/player.rank, "color":color[player.actualtier-1], 
+		"labpos": player.labpos}
 		result.append(player_tuple)
 
 	return result
@@ -101,13 +107,17 @@ def translate_position(pos_list):
 
 def tiers(pos_list):
 	tier = 1
+	actualtier = 1
 	prevavg = pos_list[0].avg
 	for x in pos_list:
 		if (x.avg - prevavg) > 3:
+			actualtier = actualtier+1
 			tier = tier+1
 			prevavg = x.avg
 			x.tier = tier
+			x.actualtier = actualtier
 		else:
+			x.actualtier = actualtier
 			x.tier = tier
 	for playa in pos_list:
 		gap = int(25 / tier)
