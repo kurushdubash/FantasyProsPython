@@ -222,130 +222,113 @@
 
 
         <script>
-            // note, we have townName field with a name specified for each datapoint and townName2 with only some of the names specified.
-            // we use townName2 to display town names next to the bullet. And as these names would overlap if displayed next to each bullet,
-            // we created this townName2 field and set only some of the names for this purpse.
-            var chartData = [
-                {
-                    "date": "2012-01-01",
-                    "distance": 227,
-                    "townName": "New York",
-                    "townName2": "New York",
-                    "townSize": 25,
-                    "latitude": 40.71,
-                },
-                {
-                    "date": "2012-01-02",
-                    "distance": 371,
-                    "townName": "Washington",
-                    "townSize": 14,
-                    "latitude": 38.89,
-                },
-                {
-                    "date": "2012-01-03",
-                    "distance": 433,
-                    "townName": "Wilmington",
-                    "townName2":"Aaron Rodgers",
-                    "townSize": 10,
-                    "latitude": 34.22,
-                },
-                {
-                    "date": "2012-01-04",
-                    "distance": 345,
-                    "townName": "Jacksonville",
-                    "townSize": 7,
-                    "latitude": 30.35,
-                },
-                {
-                    "date": "2012-01-05",
-                    "distance": 480,
-                    "townName": "Miami",
-                    "townName2": "Miami",
-                    "townSize": 10,
-                    "latitude": 25.83,
-                },
-                {
-                    "date": "2012-01-06",
-                    "distance": 386,
-                    "townName": "Tallahassee",
-                    "townSize": 7,
-                    "latitude": 30.46,
-                },
-                {
-                    "date": "2012-01-07",
-                    "distance": 348,
-                    "townName": "New Orleans",
-                    "townSize": 10,
-                    "latitude": 29.94,
-                },
-                {
-                    "date": "2012-01-08",
-                    "distance": 238,
-                    "townName": "Houston",
-                    "townName2": "Houston",
-                    "townSize": 16,
-                    "latitude": 29.76,
-                },
-                {
-                    "date": "2012-01-09",
-                    "distance": 218,
-                    "townName": "Dalas",
-                    "townSize": 17,
-                    "latitude": 32.8,
-                },
-                {
-                    "date": "2012-01-10",
-                    "distance": 349,
-                    "townName": "Oklahoma City",
-                    "townSize": 11,
-                    "latitude": 35.49,
-                },
-                {
-                    "date": "2012-01-11",
-                    "distance": 603,
-                    "townName": "Kansas City",
-                    "townSize": 10,
-                    "latitude": 39.1,
-                },
-                {
-                    "date": "2012-01-12",
-                    "distance": 534,
-                    "townName": "Denver",
-                    "townName2": "Denver",
-                    "townSize": 18,
-                    "latitude": 39.74,
-                },
-                {
-                    "date": "2012-01-13",
-                    "townName": "Salt Lake City",
-                    "townSize": 12,
-                    "distance": 425,
-                    "latitude": 40.75,
-                    "alpha":0.4
-                },
-                {
-                    "date": "2012-01-14",
-                    "latitude": 36.1,
-                    "townName": "Las Vegas",
-                    "townName2": "Las Vegas",
-                    "bulletClass": "lastBullet"
-                },
-                {
-                    "date": "2012-01-15"
-                }
-                // {
-                //     "date": "2012-01-16"
-                // },
-                // {
-                //     "date": "2012-01-17"
-                // },
-                // {
-                //     "date": "2012-01-18"
-                // },
-                // {
-                //     "date": "2012-01-19"
-                // }
-            ];
+            // note, we have name field with a name specified for each datapoint and name with only some of the names specified.
+            // we use name to display town names next to the bullet. And as these names would overlap if displayed next to each bullet,
+            // we created this name field and set only some of the names for this purpse.
+             var chartData = {{data|safe}}
+             //[
+            //     {
+            //         "date": "2012-01-01",
+            //         "distance": 227,
+            //         "name": "New York",
+            //         "tier": 250*1/50,
+            //         "rank": -40.71,
+            //     },
+            //     {
+            //         "date": "2012-01-02",
+            //         "distance": 371,
+            //         "name": "Washington",
+            //         "tier": 250*1/14,
+            //         "rank": -38.89,
+            //     },
+            //     {
+            //         "date": "2012-01-03",
+            //         "distance": 433,
+            //         "name":"Aaron Rodgers",
+            //         "tier": 250*1/10,
+            //         "rank": -34.22,
+            //     },
+            //     {
+            //         "date": "2012-01-04",
+            //         "distance": 345,
+            //         "name": "Jacksonville",
+            //         "tier": 250*1/7,
+            //         "rank": -30.35,
+            //     },
+            //     {
+            //         "date": "2012-01-05",
+            //         "distance": 480,
+            //         "name": "Miami",
+            //         "name": "Miami",
+            //         "tier": 250*1/10,
+            //         "rank": -25.83,
+            //     },
+            //     {
+            //         "date": "2012-01-06",
+            //         "distance": 386,
+            //         "name": "Tallahassee",
+            //         "tier": 250*1/7,
+            //         "rank": -30.46,
+            //     },
+            //     {
+            //         "date": "2012-01-07",
+            //         "distance": 348,
+            //         "name": "New Orleans",
+            //         "tier": 250*1/10,
+            //         "rank": -29.94,
+            //     },
+            //     {
+            //         "date": "2012-01-08",
+            //         "distance": 238,
+            //         "name": "Houston",
+            //         "tier": 250*1/16,
+            //         "rank": -29.76,
+            //     },
+            //     {
+            //         "date": "2012-01-09",
+            //         "distance": 218,
+            //         "name": "Dalas",
+            //         "tier": 250*1/17,
+            //         "rank": -32.8,
+            //     },
+            //     {
+            //         "date": "2012-01-10",
+            //         "distance": 349,
+            //         "name": "Oklahoma City",
+            //         "tier": 250*1/11,
+            //         "rank": -35.49,
+            //     },
+            //     {
+            //         "date": "2012-01-11",
+            //         "distance": 603,
+            //         "name": "Kansas City",
+            //         "tier": 250*1/10,
+            //         "rank": -39.1,
+            //     },
+            //     {
+            //         "date": "2012-01-12",
+            //         "distance": 534,
+            //         "name": "Denver",
+            //         "tier": 250*1/18,
+            //         "rank": -39.74,
+            //     },
+            //     {
+            //         "date": "2012-01-13",
+            //         "name": "Salt Lake City",
+            //         "tier": 250*1/12,
+            //         "distance": 425,
+            //         "rank": -40.75,
+            //     },
+            //     {
+            //         "date": "2012-01-15",
+            //         "rank": -36.1,
+            //         "name": "Las Vegas",
+            //     },
+            //     {
+            //         "date": "2012-01-15"
+            //     }
+
+            // ];
             var chart;
 
             AmCharts.ready(function () {
@@ -353,52 +336,57 @@
                 chart = new AmCharts.AmSerialChart();
                 chart.addClassNames = true;
                 chart.dataProvider = chartData;
-                chart.categoryField = "date";
-                chart.dataDateFormat = "YYYY-MM-DD";
+                chart.categoryField = "rank";
+                
                 chart.startDuration = 1;
                 chart.color = "#FFFFFF";
                 chart.marginLeft = 0;
+                chart.marginRight = 1;
+                chart.marginTop = 1;
+                chart.marginBottom = 1;
+
 
                 // AXES
                 // category
                 var categoryAxis = chart.categoryAxis;
-                categoryAxis.parseDates = true; // as our data is date-based, we set parseDates to true
+                categoryAxis.parseDates = false; // as our data is date-based, we set parseDates to true
                 categoryAxis.minPeriod = "DD"; // our data is daily, so we set minPeriod to DD
                 categoryAxis.autoGridCount = false;
                 categoryAxis.gridCount = 50;
                 categoryAxis.gridAlpha = 0.1;
                 categoryAxis.gridColor = "#FFFFFF";
                 categoryAxis.axisColor = "#555555";
+                categoryAxis.labelsEnabled = true;
                 // we want custom date formatting, so we change it in next line
-                categoryAxis.dateFormats = [{
-                    period: 'DD',
-                    format: 'DD'
-                }, {
-                    period: 'WW',
-                    format: 'MMM DD'
-                }, {
-                    period: 'MM',
-                    format: 'MMM'
-                }, {
-                    period: 'YYYY',
-                    format: 'YYYY'
-                }];
+                // categoryAxis.dateFormats = [{
+                //     period: 'DD',
+                //     format: 'DD'
+                // }, {
+                //     period: 'WW',
+                //     format: 'MMM DD'
+                // }, {
+                //     period: 'MM',
+                //     format: 'MMM'
+                // }, {
+                //     period: 'YYYY',
+                //     format: 'YYYY'
+                // }];
 
                 // as we have data of different units, we create three different value axes
                 // Distance value axis
-                var distanceAxis = new AmCharts.ValueAxis();
-                distanceAxis.title = "distance";
-                distanceAxis.gridAlpha = 0;
-                distanceAxis.axisAlpha = 0;
-                chart.addValueAxis(distanceAxis);
+                // var distanceAxis = new AmCharts.ValueAxis();
+                // distanceAxis.title = "distance";
+                // distanceAxis.gridAlpha = 0;
+                // distanceAxis.axisAlpha = 0;
+                // chart.addValueAxis(distanceAxis);
 
-                // latitude value axis
-                var latitudeAxis = new AmCharts.ValueAxis();
-                latitudeAxis.gridAlpha = 0;
-                latitudeAxis.axisAlpha = 0;
-                latitudeAxis.labelsEnabled = false;
-                latitudeAxis.position = "right";
-                chart.addValueAxis(latitudeAxis);
+                // rank value axis
+                var rankAxis = new AmCharts.ValueAxis();
+                rankAxis.gridAlpha = 100;
+                rankAxis.axisAlpha = 0;
+                rankAxis.labelsEnabled = false; // y-axis label
+                rankAxis.position = "right";
+                chart.addValueAxis(rankAxis);
 
                 // GRAPHS
                 // distance graph
@@ -415,54 +403,56 @@
                 // distanceGraph.alphaField = "alpha";
                 // chart.addGraph(distanceGraph);
 
-                // latitude graph
-                var latitudeGraph = new AmCharts.AmGraph();
-                latitudeGraph.valueField = "latitude";
-                latitudeGraph.id = "g1";
-                latitudeGraph.classNameField = "bulletClass";
-                latitudeGraph.title = "latitude/city";
-                latitudeGraph.type = "line";
-                latitudeGraph.valueAxis = latitudeAxis; // indicate which axis should be used
-                latitudeGraph.lineColor = "#786c56";
-                latitudeGraph.lineThickness = 1;
-                latitudeGraph.legendValueText = "[[description]]/[[value]]";
-                latitudeGraph.descriptionField = "townName";
-                latitudeGraph.bullet = "round";
-                latitudeGraph.bulletSizeField = "townSize"; // indicate which field should be used for bullet size
-                latitudeGraph.bulletBorderColor = "#786c56";
-                latitudeGraph.bulletBorderAlpha = 1;
-                latitudeGraph.bulletBorderThickness = 2;
-                latitudeGraph.bulletColor = "#000000";
-                latitudeGraph.labelText = "[[townName2]]"; // not all data points has townName2 specified, that's why labels are displayed only near some of the bullets.
-                latitudeGraph.labelPosition = "right";
-                latitudeGraph.balloonText = "latitude:[[value]]";
-                latitudeGraph.showBalloon = true;
-                latitudeGraph.animationPlayed = true;
-                chart.addGraph(latitudeGraph);
+                // rank graph
+                var rankGraph = new AmCharts.AmGraph();
+                rankGraph.valueField = "inverserank";
+                rankGraph.id = "g1";
+                rankGraph.classNameField = "bulletClass";
+                rankGraph.title = "rank/city";
+                rankGraph.type = "line";
+                rankGraph.valueAxis = rankAxis; // indicate which axis should be used
+                rankGraph.lineColor = "#1E90FF";
+                rankGraph.lineThickness = 1.3;
+                
+                rankGraph.descriptionField = "name";
+                rankGraph.bullet = "round";
+                rankGraph.bulletSizeField = "tier";/// indicate which field should be used for bullet size
+                rankGraph.bulletBorderColor = "#FE2E2E";
+                rankGraph.bulletBorderAlpha = 1;
+                rankGraph.bulletBorderThickness = 2;
+                rankGraph.bulletColor = "#000000";
+                rankGraph.labelText = "[[name]]"; // not all data points has name specified, that's why labels are displayed only near some of the bullets.
+                rankGraph.labelPosition = "right";
+                rankGraph.balloonText = "Rank:[[avg]]";
+                rankGraph.fontSize = 10;
+                rankGraph.textAlign = 'left';
+                rankGraph.showBalloon = true;
+                rankGraph.animationPlayed = true;
+                chart.addGraph(rankGraph);
 
                 // CURSOR
                 var chartCursor = new AmCharts.ChartCursor();
                 chartCursor.zoomable = false;
                 chartCursor.categoryBalloonDateFormat = "DD";
                 chartCursor.cursorAlpha = 0;
-                chartCursor.valueBalloonsEnabled = false;
+                chartCursor.valueBalloonsEnabled = true;
                 chart.addChartCursor(chartCursor);
 
-                // LEGEND
-                var legend = new AmCharts.AmLegend();
-                legend.bulletType = "round";
-                legend.equalWidths = false;
-                legend.valueWidth = 120;
-                legend.useGraphSettings = true;
-                legend.color = "#FFFFFF";
-                chart.addLegend(legend);
+                // // LEGEND
+                // var legend = new AmCharts.AmLegend();
+                // legend.bulletType = "round";
+                // legend.equalWidths = false;
+                // legend.valueWidth = 120;
+                // legend.useGraphSettings = true;
+                // legend.color = "#FFFFFF";
+                // chart.addLegend(legend);
 
                 // WRITE
                 chart.write("chartdiv");
             });
         </script>
         <center>
-        <div id="chartdiv" style="width:80%; height:400px; background-color:#1C1C1C; opacity:0.8"></div>
+        <div id="chartdiv" style="width:98%; height:525px; background-color:#1C1C1C; opacity:0.8"></div>
         	</center
         </div>
 
