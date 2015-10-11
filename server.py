@@ -16,11 +16,12 @@ last_updated = update_check()
 def index():
     return render_template('index.html', updated=last_updated)
 
-@app.route('/rankings', methods=['GET', 'POST'])
+@app.route('/rankings', methods=['POST'])
 def rankings():
     postition = request.form["action"]
     print(postition)
     player = get_all_players(postition)
+    print(player)
     return render_template('rankings.html', updated=last_updated, type=postition, data=player)
 
 

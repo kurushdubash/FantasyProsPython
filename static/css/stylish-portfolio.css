@@ -24,10 +24,21 @@ h1{
     color: #FFF;
 }
 
+h3, h4{
+
+    color: #FFF;
+}
+
 .text-vertical-center {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
+}
+
+.text-vertical-center2 {
+    display: table-cell;
+    text-align: center;
+/*    vertical-align: middle;*/
 }
 
 .text-vertical-center h1 {
@@ -36,7 +47,9 @@ h1{
     font-size: 4.5em;
     font-weight: 700;
 }
-
+.a{
+    color: #fff
+}
 /* Custom Button Styles */
 
 .btn-dark {

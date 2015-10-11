@@ -1,4 +1,160 @@
-<center>
-    Last Updated: {{updated}}
-    <br>
-    Type: {{type}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Stylish Portfolio - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/stylish-portfolio.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="http://www.justinaguilar.com/animations/css/animations.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+<!-- <body onload=$("#menu-toggle").click()> -->
+
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+
+                <a href=""  onclick = $("#ranking").click(); ></a>
+            </li>
+            <li>
+                <form  action="/rankings" method="POST">
+                <a> <button class="fakelink" type="submit" name="action" value="qb">QB</button></a>       
+               </form>
+            </li>
+            <li>
+                <form  action="/rankings" method="POST">
+                <a> <button class="fakelink" type="submit" name="action" value="wr">WR</button></a>       
+               </form>
+            </li>
+            <li>
+                <form  action="/rankings" method="POST">
+                <a> <button class="fakelink" type="submit" name="action" value="rb">RB</button></a>       
+               </form>
+            </li>
+
+            <li>
+                <form  action="/rankings" method="POST">
+                <a> <button class="fakelink" type="submit" name="action" value="rb">RB</button></a>       
+               </form>
+            </li>
+            <li>
+                <form  action="/rankings" method="POST">
+                <a> <button class="fakelink" type="submit" name="action" value="rb">RB</button></a>       
+               </form>
+            </li>
+            <li>
+                <form  action="/rankings" method="POST">
+                <a> <button class="fakelink" type="submit" name="action" value="te">TE</button></a>       
+               </form>
+            </li>
+            <li>
+                <form  action="/rankings" method="POST">
+                <a> <button class="fakelink" type="submit" name="action" value="kicker">K</button></a>       
+               </form>
+            </li>
+            <li>
+                <form  action="/rankings" method="POST">
+                <a> <button class="fakelink" type="submit" name="action" value="flex">Flex</button></a>       
+               </form>
+            </li>
+            <li>
+                <form  action="/rankings" method="POST">
+                <a> <button class="fakelink" type="submit" name="action" value="dst">DST</button></a>       
+               </form>
+            </li>
+            <li>
+                <form  action="/rankings" method="POST">
+                <a> <button class="fakelink" type="submit" name="action" value="dl">DL</button></a>       
+               </form>
+            </li>
+
+            <li>
+                <form  action="/rankings" method="POST">
+                <a> <button class="fakelink" type="submit" name="action" value="ppr-wr">PPR WR</button></a>       
+               </form>
+            </li>
+            <li>
+                <form  action="/rankings" method="POST">
+                <a> <button class="fakelink" type="submit" name="action" value="ppr-rb">PPR RB</button></a>       
+               </form>
+            </li>
+            <li>
+                <form  action="/rankings" method="POST">
+                <a> <button class="fakelink" type="submit" name="action" value="ppr-flex">PPR Flex</button></a>       
+               </form>
+            </li>
+            <li>
+                <form  action="/rankings" method="POST">
+                <a> <button class="fakelink" type="submit" name="action" value="ppr-te">TE</button></a>       
+               </form>
+            </li>                                                                                    
+        </ul>
+    </nav>
+ <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center2">
+            
+            <h3>Analyics from <a href="http://fantasypros.com">FantasyPros.com</a></h3>
+            <h4>Last Updated: {{updated}}</h4>
+            </div>
+            <br>
+        	<img src="http://www.beaconlearningcenter.com/weblessons/alltheparts/image9.gif">
+        </div>
+    </header>
+
+    <!-- jQuery -->
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+
+
+    </script>
+
+</body>
+
+</html>
