@@ -36,18 +36,18 @@ def get_position_player(filename,amt):
 		name=""
 		for y in range(1,infocounter):
 			name = name + " " + playerdata[y]
-		rank = playerdata[0]
+		rank = int(playerdata[0])
 		team = playerdata[infocounter]
 		infocounter = infocounter+1
 		matchup = playerdata[infocounter] + playerdata[infocounter+1]
 		infocounter= infocounter +2 
-		best = playerdata[infocounter]
+		best = int(playerdata[infocounter])
 		infocounter = infocounter+1
-		worst = playerdata[infocounter]
+		worst = int(playerdata[infocounter])
 		infocounter = infocounter+1
-		avg = playerdata[infocounter]
+		avg = float(playerdata[infocounter])
 		infocounter = infocounter+1
-		std = playerdata[infocounter]
+		std = float(playerdata[infocounter])
 		newplayer = Player(name,rank,team,matchup,best,worst,avg,std,week)
 		playerlist.append(newplayer)
 	return playerlist
@@ -70,19 +70,42 @@ def get_all_players(inputstr):
 	elif inputstr == "wr":
 		object_list = get_position_player("data/" + inputstr, wr)
 	elif inputstr == "kicker":
-		object_list = get_position_player("data/" + inputstr, kicker)
+		object_list = get_position_player("data/k", kicker)
 	elif inputstr == "dst":
-		object_list = get_position_player("data/" + inputstr, dst)		
-	return object_list
+		object_list = get_position_player("data/" + inputstr, dst)	
+	elif inputstr == "ppr-flex":
+		object_list = get_position_player("data/" + inputstr, flex)
+	elif inputstr == "ppr-rb":
+		object_list = get_position_player("data/" + inputstr, rb)
+	elif inputstr == "ppr-te":
+		object_list = get_position_player("data/" + inputstr, te)
+	elif inputstr == "ppr-wr":
+		object_list = get_position_player("data/" + inputstr, wr)
+	return translate_position(tiers(object_list))
 
 
 # @param pos_list: from get_all_players
-# player_tuple contains: player,rank, std (tier)
+# player_tuple contains: player,avg, std (tier)
 # @return: list of tuples in order
 def translate_position(pos_list):
 	result = []
 	player_tuple = []
 	for player in pos_list:
-		player_tuple = (player.name, player.rank, player.std)
+		player_tuple = (player.name, player.avg, player.std, player.tier)
 		result.append(player_tuple)
+
 	return result
+
+
+def tiers(pos_list):
+	tier = 1
+	prevavg = pos_list[0].avg
+	for x in pos_list:
+		if (x.avg - prevavg) > 3:
+			tier = tier+1
+			prevavg = x.avg
+			x.tier = tier
+		else:
+			x.tier = tier
+	return pos_list
+
