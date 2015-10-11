@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template
 from check_for_updates import update_check
-import fantasyprodata
-
+from fantasyprodata import get_all_players
 
 app = Flask(__name__)
 app.debug = True
@@ -21,8 +20,8 @@ def index():
 def rankings():
     postition = request.form["action"]
     print(postition)
-    # player = get_all_players(postition)
-    return render_template('rankings.html', updated=last_updated, type=postition)
+    player = get_all_players(postition)
+    return render_template('rankings.html', updated=last_updated, type=postition, data=player)
 
 
 if __name__ == "__main__":

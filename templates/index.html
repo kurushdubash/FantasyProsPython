@@ -10,6 +10,10 @@
     <meta name="author" content="">
 
     <title>Stylish Portfolio - Start Bootstrap Theme</title>
+    
+    <script type="text/javascript">
+        window.onload = $("#menu-toggle").click();
+        </script>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
@@ -23,6 +27,7 @@
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="http://www.justinaguilar.com/animations/css/animations.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -31,8 +36,9 @@
     <![endif]-->
 
 </head>
-
 <body>
+
+<!-- <body onload=$("#menu-toggle").click()> -->
 
     <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
@@ -121,11 +127,16 @@
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <h1>Fantasy Football Projections</h1>
+            <div class="pullDown">
+            <h1>Fantasy Football Projections</h1></div>
+            <div class="pullUp">
             <h3>Analyics from <a href="http://fantasypros.com">FantasyPros.com</a></h3>
             <h4>Last Updated: {{updated}}</h4>
+            </div>
             <br>
+            <div class="fadeIn">
             <a href="#" class="btn btn-dark btn-lg" onclick = $("#menu-toggle").click();>Choose Position & League</a>
+            </div>
         </div>
     </header>
 
