@@ -225,110 +225,8 @@
             // note, we have name field with a name specified for each datapoint and name with only some of the names specified.
             // we use name to display town names next to the bullet. And as these names would overlap if displayed next to each bullet,
             // we created this name field and set only some of the names for this purpse.
-             var chartData = {{data|safe}}
-             //[
-            //     {
-            //         "date": "2012-01-01",
-            //         "distance": 227,
-            //         "name": "New York",
-            //         "tier": 250*1/50,
-            //         "rank": -40.71,
-            //     },
-            //     {
-            //         "date": "2012-01-02",
-            //         "distance": 371,
-            //         "name": "Washington",
-            //         "tier": 250*1/14,
-            //         "rank": -38.89,
-            //     },
-            //     {
-            //         "date": "2012-01-03",
-            //         "distance": 433,
-            //         "name":"Aaron Rodgers",
-            //         "tier": 250*1/10,
-            //         "rank": -34.22,
-            //     },
-            //     {
-            //         "date": "2012-01-04",
-            //         "distance": 345,
-            //         "name": "Jacksonville",
-            //         "tier": 250*1/7,
-            //         "rank": -30.35,
-            //     },
-            //     {
-            //         "date": "2012-01-05",
-            //         "distance": 480,
-            //         "name": "Miami",
-            //         "name": "Miami",
-            //         "tier": 250*1/10,
-            //         "rank": -25.83,
-            //     },
-            //     {
-            //         "date": "2012-01-06",
-            //         "distance": 386,
-            //         "name": "Tallahassee",
-            //         "tier": 250*1/7,
-            //         "rank": -30.46,
-            //     },
-            //     {
-            //         "date": "2012-01-07",
-            //         "distance": 348,
-            //         "name": "New Orleans",
-            //         "tier": 250*1/10,
-            //         "rank": -29.94,
-            //     },
-            //     {
-            //         "date": "2012-01-08",
-            //         "distance": 238,
-            //         "name": "Houston",
-            //         "tier": 250*1/16,
-            //         "rank": -29.76,
-            //     },
-            //     {
-            //         "date": "2012-01-09",
-            //         "distance": 218,
-            //         "name": "Dalas",
-            //         "tier": 250*1/17,
-            //         "rank": -32.8,
-            //     },
-            //     {
-            //         "date": "2012-01-10",
-            //         "distance": 349,
-            //         "name": "Oklahoma City",
-            //         "tier": 250*1/11,
-            //         "rank": -35.49,
-            //     },
-            //     {
-            //         "date": "2012-01-11",
-            //         "distance": 603,
-            //         "name": "Kansas City",
-            //         "tier": 250*1/10,
-            //         "rank": -39.1,
-            //     },
-            //     {
-            //         "date": "2012-01-12",
-            //         "distance": 534,
-            //         "name": "Denver",
-            //         "tier": 250*1/18,
-            //         "rank": -39.74,
-            //     },
-            //     {
-            //         "date": "2012-01-13",
-            //         "name": "Salt Lake City",
-            //         "tier": 250*1/12,
-            //         "distance": 425,
-            //         "rank": -40.75,
-            //     },
-            //     {
-            //         "date": "2012-01-15",
-            //         "rank": -36.1,
-            //         "name": "Las Vegas",
-            //     },
-            //     {
-            //         "date": "2012-01-15"
-            //     }
+             var chartData = {{data|safe}};
 
-            // ];
             var chart;
 
             AmCharts.ready(function () {
@@ -420,12 +318,16 @@
                 rankGraph.bulletBorderColor = "#FE2E2E";
                 rankGraph.bulletBorderAlpha = 1;
                 rankGraph.bulletBorderThickness = 2;
-                rankGraph.bulletColor = "#000000";
+                console.log(chartData[5]['color'])
+                rankGraph.bulletColor =  '[[color]]';//"#000000";
+                rankGraph.colorField = "color";
+                rankGraph.fillColorsField = "[[color]]";
                 rankGraph.labelText = "[[name]]"; // not all data points has name specified, that's why labels are displayed only near some of the bullets.
                 rankGraph.labelPosition = "right";
                 rankGraph.balloonText = "Rank:[[avg]]";
+                rankGraph.labelOffset = 4;
                 rankGraph.fontSize = 10;
-                rankGraph.textAlign = 'left';
+                //rankGraph.textAlign = 'left';
                 rankGraph.showBalloon = true;
                 rankGraph.animationPlayed = true;
                 chart.addGraph(rankGraph);
