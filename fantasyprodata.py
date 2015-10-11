@@ -70,7 +70,7 @@ def get_all_players(inputstr):
 	elif inputstr == "wr":
 		object_list = get_position_player("data/" + inputstr, wr)
 	elif inputstr == "kicker":
-		object_list = get_position_player("data/" + inputstr, kicker)
+		object_list = get_position_player("data/k", kicker)
 	elif inputstr == "dst":
 		object_list = get_position_player("data/" + inputstr, dst)	
 	elif inputstr == "ppr-flex":
