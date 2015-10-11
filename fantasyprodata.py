@@ -91,7 +91,8 @@ def translate_position(pos_list):
 	result = []
 	player_tuple = []
 	for player in pos_list:
-		player_tuple = (player.name, player.avg, player.std, player.tier)
+		player_tuple = {"name":player.name, "avg": player.avg, "std":player.std, 
+		"tier":player.tier}
 		result.append(player_tuple)
 
 	return result
