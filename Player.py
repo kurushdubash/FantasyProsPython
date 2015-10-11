@@ -26,3 +26,4 @@ class Player:
 		self.std = std
 		self.week = week
 		self.tier = tier
+		self.labpos = "right"
