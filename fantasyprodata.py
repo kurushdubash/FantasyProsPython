@@ -92,7 +92,8 @@ def translate_position(pos_list):
 	player_tuple = []
 	for player in pos_list:
 		player_tuple = {"name":player.name, "avg": player.avg, "std":player.std, 
-		"tier":player.tier}
+		"tier":player.tier, "rank":player.rank, "inverserank":1/player.rank}
+		
 		result.append(player_tuple)
 
 	return result
@@ -108,5 +109,8 @@ def tiers(pos_list):
 			x.tier = tier
 		else:
 			x.tier = tier
+	for playa in pos_list:
+		gap = int(25 / tier)
+		playa.tier = 30 - gap*(playa.tier-1)
 	return pos_list
 
