@@ -7,3 +7,22 @@
      border-bottom:1px solid #444; 
      cursor: pointer;
 }
+
+/* The animation code */
+/*@keyframes example {
+	margin: 0;
+    padding: 0;
+    font-size: 4.5em;
+    font-weight: 700;
+    from {background-color: black;}
+    to {background-color: white;}
+}
+
+ The element to apply the animation to 
+header1 {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 4s;
+}*/
