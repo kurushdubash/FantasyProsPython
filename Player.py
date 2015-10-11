@@ -14,14 +14,15 @@
 class Player: 
 	"Player class that represents a football player"
 
-	def __init__(self,name,rank,team,matchup,best,worst,avg,std, week):
+	def __init__(self,name,rank,team,matchup,best,worst,avg,std, week, tier=1):
 		"Creates football player"
-		self.name = name;
-		self.rank = rank;
-		self.team = team;
-		self.matchup = matchup;
-		self.best = best;
-		self.worst = worst;
-		self.avg = avg;
-		self.std = std;
-		self.week = week;
+		self.name = name
+		self.rank = rank
+		self.team = team
+		self.matchup = matchup
+		self.best = best
+		self.worst = worst
+		self.avg = avg
+		self.std = std
+		self.week = week
+		self.tier = tier

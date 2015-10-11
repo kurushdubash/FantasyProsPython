@@ -81,7 +81,7 @@ def get_all_players(inputstr):
 		object_list = get_position_player("data/" + inputstr, te)
 	elif inputstr == "ppr-wr":
 		object_list = get_position_player("data/" + inputstr, wr)
-	return object_list
+	return translate_position(object_list)
 
 
 # @param pos_list: from get_all_players
@@ -91,7 +91,7 @@ def translate_position(pos_list):
 	result = []
 	player_tuple = []
 	for player in pos_list:
-		player_tuple = (player.name, player.avg, player.std)
+		player_tuple = (player.name, player.avg, player.std, player.tier)
 		result.append(player_tuple)
 	return result
 
