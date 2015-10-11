@@ -70,19 +70,29 @@ def get_all_players(inputstr):
 	elif inputstr == "wr":
 		object_list = get_position_player("data/" + inputstr, wr)
 	elif inputstr == "kicker":
-		object_list = get_position_player("data/" + inputstr, kicker)
+		object_list = get_position_player("data/k", kicker)
 	elif inputstr == "dst":
-		object_list = get_position_player("data/" + inputstr, dst)		
-	return object_list
+		object_list = get_position_player("data/" + inputstr, dst)	
+	elif inputstr == "ppr-flex":
+		object_list = get_position_player("data/" + inputstr, flex)
+	elif inputstr == "ppr-rb":
+		object_list = get_position_player("data/" + inputstr, rb)
+	elif inputstr == "ppr-te":
+		object_list = get_position_player("data/" + inputstr, te)
+	elif inputstr == "ppr-wr":
+		object_list = get_position_player("data/" + inputstr, wr)
+	return translate_position(object_list)
 
 
 # @param pos_list: from get_all_players
-# player_tuple contains: player,rank, std (tier)
+# player_tuple contains: player,avg, std (tier)
 # @return: list of tuples in order
 def translate_position(pos_list):
 	result = []
 	player_tuple = []
 	for player in pos_list:
-		player_tuple = (player.name, player.rank, player.std)
+		player_tuple = (player.name, player.avg, player.std, player.tier)
 		result.append(player_tuple)
 	return result
+
+
