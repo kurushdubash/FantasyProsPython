@@ -39,22 +39,28 @@
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <a href="#top"  onclick = $("#menu-close").click(); >Start Bootstrap</a>
+
+                <a href="#top"  onclick = $("#ranking").click(); >Start Bootstrap</a>
             </li>
             <li>
-                <a href="#top" onclick = $("#menu-close").click(); >Home</a>
+
+                <form  action="/rankings" method="POST" id="rankings" >
+                <button type="submit" name="action" value="PPR QB">PPR QB</button>       
+                
+               </form>   
+                <a href="#" onclick = $("#ranking").click() {alert($(this).html()); >WR</a>
             </li>
             <li>
-                <a href="#about" onclick = $("#menu-close").click(); >About</a>
+                <a href="#" onclick = $("#ranking").click(); >PPR WR</a>
             </li>
             <li>
-                <a href="#services" onclick = $("#menu-close").click(); >Services</a>
+                <a href="#" onclick = $("#ranking").click(); >Services</a>
             </li>
             <li>
-                <a href="#portfolio" onclick = $("#menu-close").click(); >Portfolio</a>
+                <a href="#" onclick = $("#ranking").click(); >Portfolio</a>
             </li>
             <li>
-                <a href="#contact" onclick = $("#menu-close").click(); >Contact</a>
+                <a href="#" onclick = $("#ranking").click(); >Contact</a>
             </li>
         </ul>
     </nav>
@@ -64,6 +70,7 @@
         <div class="text-vertical-center">
             <h1>Fantasy Football Projections</h1>
             <h3>Analyics from <a href="http://fantasypros.com">FantasyPros.com</a></h3>
+            <h4>Last Updated: {{updated}}</h4>
             <br>
             <a href="#" class="btn btn-dark btn-lg" onclick = $("#menu-toggle").click();>Choose Position & League</a>
         </div>
@@ -88,6 +95,18 @@
         e.preventDefault();
         $("#sidebar-wrapper").toggleClass("active");
     });
+
+    // Sends Data to the back end
+    $("#ranking").click(function(e) {
+        e.preventDefault();
+        $.post("/ranking",
+        JSON.stringify({'data': e.text()}),
+        function( data ) {
+            $('#answer').html(data);
+        })
+    });
+
+    
 
     // Scrolls to the selected menu item on the page
     $(function() {

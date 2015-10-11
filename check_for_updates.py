@@ -11,7 +11,8 @@ def update_check():
     time_now = datetime.now()
     old_time = last_update.readline()
     last_update_time = datetime.strptime(old_time, "%Y-%m-%d %H:%M:%S.%f")
-    time_difference  = int(math.floor(((time_now - last_update_time).seconds) / 3600))
+    time_difference  = math.floor(((time_now - last_update_time).seconds) / 3600) + 1
+    print (time_difference)
     if time_difference > 2:
         os.system('bash download.sh')       
         last_update.close()
