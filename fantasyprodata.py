@@ -85,13 +85,13 @@ def get_all_players(inputstr):
 
 
 # @param pos_list: from get_all_players
-# player_tuple contains: player,rank, std (tier)
+# player_tuple contains: player,avg, std (tier)
 # @return: list of tuples in order
 def translate_position(pos_list):
 	result = []
 	player_tuple = []
 	for player in pos_list:
-		player_tuple = (player.name, player.rank, player.std)
+		player_tuple = (player.name, player.avg, player.std)
 		result.append(player_tuple)
 	return result
 
