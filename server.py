@@ -22,6 +22,7 @@ def index():
 
 @app.route('/rankings', methods=['POST'])
 def rankings():
+    last_updated = update_check()
     postition = request.form["action"]
     print(postition)
     player = [{'rank':.5}]
